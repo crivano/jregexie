@@ -34,7 +34,7 @@ public class CpfTest {
 	@Test
 	public void test1Succeed() {
 		Expression e = new Cpf();
-		String s = "CPF: 004.896.237-61|CPF No 00489623760|Cpf004.896.237-61";
+		String s = "CPF: 004.896.237-61|CPF No 00489623761|Cpf004.896.237-61";
 		List<Ocurrence> l = e.extract(s);
 		assertEquals(s.split("\\|").length, l.size());
 		for (Ocurrence o : l) {
