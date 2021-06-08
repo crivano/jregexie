@@ -22,15 +22,9 @@ public class TudoTest {
 	private static final String TEST1 = "Eu, Nome do Usuário, CPF: " + CPF + ", solicito restituição de " + NUMEROS
 			+ " parcelas de " + REAIS + "...";
 
-	private List<Ocurrence> ocurrences;
-
-	@BeforeAll
-	public void before() {
-		this.ocurrences = new Tudo(SUBSTRING).extract(TEST1);
-	}
-
 	@Test
 	public void testFindMultipleSucceed() {
+		List<Ocurrence> ocurrences = new Tudo(SUBSTRING).extract(TEST1);
 		assertEquals(SUBSTRING, ocurrences.get(0).getVal());
 		assertEquals(CPF, ocurrences.get(1).getVal());
 		assertEquals(NUMEROS, ocurrences.get(2).getVal());
@@ -39,6 +33,7 @@ public class TudoTest {
 
 	@Test
 	public void testReplaceMultipleSucceed() {
+		List<Ocurrence> ocurrences = new Tudo(SUBSTRING).extract(TEST1);
 		String s = Utils.replaceOcurrencesWithPlaceholders(TEST1, ocurrences);
 		assertEquals(TEST1.replace(SUBSTRING, "{{!Substring}}").replace("CPF: " + CPF, "{{!pt.br.Cpf}}")
 				.replace(NUMEROS, "{{!Number}}").replace(REAIS, "{{!pt.br.Real}}"), s);
