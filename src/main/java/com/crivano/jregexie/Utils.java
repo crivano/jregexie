@@ -61,4 +61,12 @@ public class Utils {
 
 		return rows.get(0).getOldLine();
 	}
+
+	public static String diffAndColapse(String sOld, String sNew) {
+		String s = diff(sOld, sNew);
+		s = s.replaceAll(
+				"(?s)\\<span class\\=\"editOldInline\"\\>([^\\<]+?)\\</span\\>\\<span class=\"editNewInline\"\\>([^\\<]+?)\\</span\\>",
+				"<span class=\"replaceInline\" title=\"$1\">$2</span>");
+		return s;
+	}
 }
