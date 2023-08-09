@@ -28,7 +28,7 @@ public class Real implements Expression {
 		return l;
 	}
 
-	public static boolean validate(String CPF) {
+	public static boolean validate(String s) {
 		return true;
 	}
 
